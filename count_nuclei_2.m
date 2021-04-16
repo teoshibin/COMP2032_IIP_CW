@@ -39,6 +39,10 @@ function cc = count_nuclei_2(image, verbose)
 
     cc = bwconncomp(im_seg_bwao);
     
+    overlay_1 = labeloverlay(im_pwl, im_seg_bwao, "Colormap","cool", "Transparency", 0.5);
+    
+    overlay_2 = labeloverlay(image, im_seg_bwao, "Colormap","cool", "Transparency", 0.5);
+    
     if verbose
         
         figure
@@ -77,12 +81,12 @@ function cc = count_nuclei_2(image, verbose)
         title("8 watershed");
         
         subplottight(5,2,8);
-        imshow(labeloverlay(im_pwl, im_seg_bwao, "Colormap","cool", "Transparency", 0.5));
-        title("9 overlay");
+        imshow(overlay_1, 'border', 'tight');
+        title("9 green channel with overlay");
         
         subplottight(5,2,10);
-        imshow(labeloverlay(image, im_seg_bwao, "Colormap","cool", "Transparency", 0.5));
-        title("10 overlay");
+        imshow(overlay_2, 'border', 'tight');
+        title("10 RGB with overlay");
     end
     
 end

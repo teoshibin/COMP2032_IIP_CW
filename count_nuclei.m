@@ -37,16 +37,16 @@ function cc = count_nuclei(image, verbose)
     im_saltless = imopen(im_brighten, se);
     
     % get the peak of local region
-    overlay = imregionalmax(im_saltless);
+    im_max = imregionalmax(im_saltless);
+        
+    % display green channel nuclei image along with marking region
+    overlay_1 = labeloverlay(green_channel, im_max, "Colormap","cool", "Transparency", 0.5);
     
     % display original image along with marking region
-    im_fused_original = labeloverlay(image, overlay, "Colormap","cool");
-    
-    % display green channel nuclei image along with marking region
-    im_fused_green = labeloverlay(im_brighten, overlay, "Colormap","cool");
-    
+    overlay_2 = labeloverlay(image, im_max, "Colormap","cool", "Transparency", 0.5);
+
     % compute connected objects
-    cc = bwconncomp(overlay);
+    cc = bwconncomp(im_max);
         
     if verbose
         
@@ -70,16 +70,16 @@ function cc = count_nuclei(image, verbose)
         title("4 Saltless Nuclei");
         
         subplottight(4,2,2);
-        imshow(overlay,'border', 'tight');
+        imshow(im_max,'border', 'tight');
         title("5 Nuclei Marking Region");
         
         subplottight(4,2,4);
-        imshow(im_fused_original,'border', 'tight');
-        title("6 Original Image with Marking Region Overlay");
+        imshow(overlay_1,'border', 'tight');
+        title("6 green channel with overlay");
         
         subplottight(4,2,6);
-        imshow(im_fused_green,'border', 'tight');
-        title("7 Nuclei Image with Marking Region Overlay");
+        imshow(overlay_2,'border', 'tight');
+        title("7 RGB with overlay");
         
     end
     

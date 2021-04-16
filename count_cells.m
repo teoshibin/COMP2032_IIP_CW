@@ -57,14 +57,14 @@ function cc = count_cells(image, verbose)
 
     im_seg_bwao = bwareaopen(im_seg_op, 50);
 
-    % display original image along with marking region
-    im_fused_original = labeloverlay(image, im_seg_bwao, "Colormap","cool");
-    
-    % display red channel cell wall image along with marking region
-    im_fused_red = labeloverlay(im_stretch, im_seg_bwao, "Colormap","cool");
-    
     % calculate and display labeled object
     cc = bwconncomp(im_seg_bwao); 
+        
+    % display red channel cell wall image along with marking region
+    overlay_1 = labeloverlay(im_stretch, im_seg_bwao, "Colormap","cool", "Transparency", 0.5);
+    
+    % display original image along with marking region
+    overlay_2 = labeloverlay(image, im_seg_bwao, "Colormap","cool", "Transparency", 0.5);
     
     if verbose
         
@@ -93,15 +93,15 @@ function cc = count_cells(image, verbose)
         
         subplottight(4,2,4);
         imshow(im_seg_bwao,'border', 'tight');
-        title("6 Remove pepper or small object");
+        title("6 Watershed");
         
         subplottight(4,2,6);
-        imshow(im_fused_original,'border', 'tight');
-        title("7 Original Image with Marking Region Overlay");
+        imshow(overlay_1,'border', 'tight');
+        title("7 green channel with overlay");
         
         subplottight(4,2,8);
-        imshow(im_fused_red,'border', 'tight');
-        title("8 Cell wall Image with Marking Region Overlay");
+        imshow(overlay_2,'border', 'tight');
+        title("8 RGB with overlay");
     end
 end
 
