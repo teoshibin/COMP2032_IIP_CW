@@ -9,7 +9,7 @@
   <img src="Report/Attachments/stackninja1_result.jpg" width="179"/>
 </p>
 
-[Statistical Results](Report/Attachments/stackninja1_statistic)
+[Statistical Results](Report/Attachments/stackninja1_statistic.txt)
 
 ## USAGE
 ### Run Example Script 
