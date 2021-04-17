@@ -46,15 +46,20 @@ function cc = count_cells(image, verbose)
     se = strel("square", 5);
     im_shrink = imopen(~im_filled, se);
     
+    % get distance transformation
     im_dist = bwdist(~im_shrink, "euclidean");
 
+    % segmentation using distance image
     lbl = watershed(imcomplement(im_dist));
     im_rgb_seg = label2rgb(lbl,'white','k','shuffle');
 
+    % get watershed label merge with original binarized image
     im_seg = im_shrink & im_rgb_seg(:,:,1);
     
+    % opening to remove small regions
     im_seg_op = imopen(im_seg, strel('disk', 2));
 
+    % areo open to remove small regions
     im_seg_bwao = bwareaopen(im_seg_op, 50);
 
     % calculate and display labeled object

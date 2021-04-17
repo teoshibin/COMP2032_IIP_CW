@@ -1,46 +1,60 @@
 function cc = count_nuclei_2(image, verbose)
-%COUNT_NUCLEI_2 Summary of this function goes here
-%   Detailed explanation goes here
+% get connected components using watershed method on nuclei
 
     arguments
         image (:,:,3) uint8 
         verbose (1,1) logical = 0
     end
 
+    % green channel
     gc = image(:,:,2);
     
+    % brighten image
     im_ad = imadjust(gc);
 
+    % denoise
     im_med = medfilt2(im_ad, [3 3]);
 
+    % denoise
     im_ave = imfilter(im_med, fspecial("average", 3));
 
+    % compensate the blur introduced by denoise function
     im_shp = imsharpen(im_ave);
 
+    % brighten image
     T = pieceWiseLinear([30, 64], [255 255]); % plot T to see transformation graph
     im_pwl = T(im_shp + 1);
 
+    % get seed
     marker = imerode(im_pwl, strel('disk', 1));
 
+    % use marker seed to reconstruct image
     im_rct = imreconstruct(marker, im_pwl);
 
+    % threshold image
     im_bnr = imbinarize(im_rct, "adaptive");
 
+    % distance transformation for segmentation
     im_dist = bwdist(~im_bnr, "euclidean");
 
+    % watershed segmentation
     lbl = watershed(imcomplement(im_dist));
     im_rgb_seg = label2rgb(lbl,'white','k','shuffle');
 
+    % merge original image with watershed label image
     im_seg = im_bnr & im_rgb_seg(:,:,1);
 
+    % opening to remove small region
     im_seg_op = imopen(im_seg, strel('disk', 2));
 
+    % area open to remove small region
     im_seg_bwao = bwareaopen(im_seg_op, 50);
 
+    % return connected components
     cc = bwconncomp(im_seg_bwao);
     
+    % for displaying image with overlay
     overlay_1 = labeloverlay(im_pwl, im_seg_bwao, "Colormap","cool", "Transparency", 0.5);
-    
     overlay_2 = labeloverlay(image, im_seg_bwao, "Colormap","cool", "Transparency", 0.5);
     
     if verbose

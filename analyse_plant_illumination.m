@@ -18,17 +18,17 @@ function analyse_plant_illumination(im, verbose)
 
     fprintf(" \n==== Analyse Plant Illumination ====\n \n");
     
-    % analyse nuclei using method 1 (ignore nuclei size)
+    % analyse nuclei using method 1 (regional max)
     cc1 = count_nuclei(im, verbose);
     label_1 = labelmatrix(cc1);
     rgb_label_1 = label2rgb(label_1, 'spring','c','shuffle'); 
 
-    % analyse nuclei using method 2 (take everything into count)
+    % analyse nuclei using method 2 (watershed)
     cc2 = count_nuclei_2(im, verbose);
     label_2 = labelmatrix(cc2);
     rgb_label_2 = label2rgb(label_2, 'spring','c','shuffle'); 
     
-    % analyse cell wall only
+    % analyse cell wall only (watershed)
     cc3 = count_cells(im, verbose);
     label_3 = labelmatrix(cc3);
     rgb_label_3 = label2rgb(label_3, 'spring','c','shuffle'); 
