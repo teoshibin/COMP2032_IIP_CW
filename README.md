@@ -3,10 +3,10 @@
 ## Results
 
 <p align="center" float="left">
-  <img src="Report/Attachments/stackninja1_method1.jpg" width="230"/>
-  <img src="Report/Attachments/stackninja1_method2.jpg" width="230"/>
-  <img src="Report/Attachments/stackninja1_method3.jpg" width="230"/>
-  <img src="Report/Attachments/stackninja1_result.jpg" width="230"/>
+  <img src="Report/Attachments/stackninja1_method1.jpg" width="174"/>
+  <img src="Report/Attachments/stackninja1_method2.jpg" width="174"/>
+  <img src="Report/Attachments/stackninja1_method3.jpg" width="174"/>
+  <img src="Report/Attachments/stackninja1_result.jpg" width="174"/>
 </p>
 
 [Statistical Results](Report/Attachments/stackninja1_statistic.txt)
