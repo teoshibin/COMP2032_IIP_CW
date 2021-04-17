@@ -19,5 +19,6 @@
 ### How to analyse other image
 1. Place prefered image into [Image folder](Images)
 2. call ``analyse_plant_illumination`` with specified image to generate the result
+
     > **see also**   
-    > Example implementation [main.m](main.m)
+    > Example run script implementation [main.m](main.m)
