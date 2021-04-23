@@ -32,5 +32,7 @@ function [stats, area_stats, circularity_stats, ...
     length_stats = calculate_statistic([stats.MinorAxisLength stats.MajorAxisLength]);
     my_disp("Min & Max Length Stats",length_stats);
     
+    statsPlot(stats);
+    
 end
 

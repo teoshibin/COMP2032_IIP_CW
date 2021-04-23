@@ -55,10 +55,12 @@ function analyse_plant_illumination(im, verbose)
 
     % compute all statistical values with detected components
     % this section will take more time to compute
-    whole_statistic(im(:,:,2), cc1, " of Nuclei with Regional Max");
-    whole_statistic(im(:,:,2), cc2, " of Nuclei with Watershed");
-    whole_statistic(im(:,:,1), cc3, " of Cell Walls with Watershed");
-       
+    stat1 = whole_statistic(im(:,:,2), cc1, " of Nuclei with Regional Max");
+    stat2 = whole_statistic(im(:,:,2), cc2, " of Nuclei with Watershed");
+    stat3 = whole_statistic(im(:,:,1), cc3, " of Cell Walls with Watershed");
+    
+    
+    
     % object detection result
     my_disp("Numbers of nuclei detected with method 1", cc1.NumObjects);
     my_disp("Numbers of nuclei detected with method 2", cc2.NumObjects);

@@ -1,0 +1,40 @@
+function statsPlot(stats)
+    figure
+    
+    subplot(8,2,1);
+    histogram(stats.Area);
+    title("Area Histogram");
+    subplot(8,2,2);
+    boxplot(stats.Area);
+    title("Area Histogram");
+    
+    subplot(8,2,3);
+    histogram(stats.Circularity);
+    title("Circularity Histogram");
+    subplot(8,2,4);
+    boxplot(stats.Circularity);
+    title("Circularity Histogram");
+    
+    subplot(8,2,5);
+    histogram(stats.Perimeter);
+    title("Perimeter Histogram");
+    subplot(8,2,4);
+    boxplot(stats.Circularity);
+    title("Circularity Histogram");
+    subplot(8,2,4);
+    histogram(stats.MeanIntensity);
+    title("MeanIntensity Histogram");
+    subplot(8,2,5);
+    histogram(stats.MinIntensity);
+    title("MinIntensity Histogram");
+    subplot(8,2,6);
+    histogram(stats.MaxIntensity);
+    title("MaxIntensity Histogram");
+    subplot(8,2,7);
+    histogram(stats.MinorAxisLength);
+    title("MinorAxisLength Histogram");
+    subplot(8,2,8);
+    histogram(stats.MajorAxisLength);
+    title("MajorAxisLength Histogram");
+end
+
