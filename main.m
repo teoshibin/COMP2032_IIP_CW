@@ -14,7 +14,8 @@ close all
 clear
 clc
 
-addpath('./Images'); % directory that contains the image
+addpath('./Images'); % import input image
+addpath('./Functions'); % import Functions
 
 % change this to 0 to suppress inner progress output
 verbose = 1;
