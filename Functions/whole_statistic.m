@@ -11,7 +11,7 @@ function [stats, area_stats, circularity_stats, ...
         "MajoraxisLength", "MinoraxisLength");
 
     % display all properties
-    my_disp("Statistical Analysis" + msg, stats);
+    my_disp("Statistical Analysis of " + msg, stats);
         
     % calculate all statistical analysis
     area_stats = calculate_statistic(stats.Area);
@@ -32,7 +32,7 @@ function [stats, area_stats, circularity_stats, ...
     length_stats = calculate_statistic([stats.MinorAxisLength stats.MajorAxisLength]);
     my_disp("Min & Max Length Stats",length_stats);
     
-    statsPlot(stats);
+    statsPlot(stats, msg);
     
 end
 

@@ -34,7 +34,7 @@ function analyse_plant_illumination(im, verbose)
     rgb_label_3 = label2rgb(label_3, 'spring','c','shuffle'); 
     
     % plot detected object region
-    figure
+    figure('name', "Connected Components Result")
     set(gcf, 'Position',  [700, 80, 700, 700])
     
     subplottight(2,2,1);
@@ -55,9 +55,9 @@ function analyse_plant_illumination(im, verbose)
 
     % compute all statistical values with detected components
     % this section will take more time to compute
-    whole_statistic(im(:,:,2), cc1, " of Nuclei with Regional Max");
-    whole_statistic(im(:,:,2), cc2, " of Nuclei with Watershed");
-    whole_statistic(im(:,:,1), cc3, " of Cell Walls with Watershed");
+    whole_statistic(im(:,:,2), cc1, "Nuclei with Regional Max");
+    whole_statistic(im(:,:,2), cc2, "Nuclei with Watershed");
+    whole_statistic(im(:,:,1), cc3, "Cell Walls with Watershed");
        
     % object detection result
     my_disp("Numbers of nuclei detected with method 1", cc1.NumObjects);

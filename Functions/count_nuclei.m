@@ -50,7 +50,7 @@ function cc = count_nuclei(image, verbose)
         
     if verbose
         
-        figure
+        figure('name', "Nuclei with Regional Max")
         set(gcf, 'Position',  [100, 20, 700, 700]);
         
         subplottight(4,2,1);

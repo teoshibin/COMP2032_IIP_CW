@@ -59,7 +59,7 @@ function cc = count_nuclei_2(image, verbose)
     
     if verbose
         
-        figure
+        figure('name', "Nuclei with Watershed")
         set(gcf, 'Position',  [300, 40, 700, 700]);
         
         subplottight(5,2,1);

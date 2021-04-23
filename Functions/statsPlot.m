@@ -1,6 +1,5 @@
-function statsPlot(stats)
-    figure
-    set(gcf, 'Position',  [800, 50, 700, 700])
+function statsPlot(stats, name)
+    figure('name', name)
     
     subplot(4,4,1);
     histogram(stats.Area);

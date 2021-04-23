@@ -73,7 +73,7 @@ function cc = count_cells(image, verbose)
     
     if verbose
         
-        figure
+        figure('name', "Cell Walls with Watershed")
         set(gcf, 'Position',  [500, 60, 700, 700])
         
         subplottight(4,2,1);
