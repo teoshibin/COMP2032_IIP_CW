@@ -15,7 +15,7 @@ clear
 clc
 
 addpath('./Images'); % import input image
-addpath('./Functions'); % import Functions
+addpath(genpath('./Plant_Analyser')); % import Functions
 
 % change this to 0 to suppress inner progress output
 verbose = 1;
