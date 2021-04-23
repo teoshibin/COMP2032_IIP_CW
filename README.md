@@ -1,6 +1,6 @@
 # Image Processing - plant illumination analysis
 
-## Results
+## Screenshots
 
 <p align="center" float="left">
   <img src="screenshots/1.png" width="174"/>
