@@ -9,9 +9,9 @@
   <img src="screenshots/4.png" width="174"/>
 </p>
 <p align="center" float="left">
-  <img src="screenshots/5.png" width="174"/>
-  <img src="screenshots/6.png" width="174"/>
-  <img src="screenshots/7.png" width="174"/>
+  <img src="screenshots/5.png" width="232"/>
+  <img src="screenshots/6.png" width="232"/>
+  <img src="screenshots/7.png" width="232"/>
 </p>
 
 [Statistical Results](Report/Attachments/stackninja1_statistic.txt)
